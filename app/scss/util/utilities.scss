@@ -9,3 +9,11 @@
   -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
   border-radius: $top-left $top-right $bottom-right $bottom-left;
 }
+.radius{
+  border-radius: 10px;
+}
+.split{
+  display: flex;
+ align-items: center;
+ gap: 20px;
+}

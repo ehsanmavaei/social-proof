@@ -1,8 +1,89 @@
 @use "../util" as *;
-@use "../globls" as *;
+@use "../globals" as *;
 
-body{
-    font-size: 15px;
-    font-family: 'Spartan', sans-serif;
+body {
+  font-size: 15px;
+  font-family: "Spartan", sans-serif;
+  background-color: $background-color;
+  line-height: 1.4;
 }
 
+.main {
+}
+.social {
+  background-color: $white;
+  padding: 2rem;
+  text-align: center;
+  & > * {
+    padding-top: 3rem;
+  }
+
+  .title {
+    h1 {
+      margin-left: auto;
+      margin-right: auto;
+      width: 12ch;
+      font-size: 2rem;
+      font-weight: 800;
+      color: $very-dark-magenta;
+    }
+    p {
+      
+      padding-top: 20px;
+    }
+  }
+  .ratings {
+    ul {
+      li {
+        background-color: $light-Grayish-Magenta;
+        padding: 10px;
+        margin: 10px;
+        font-weight: 700;
+        color: $very-dark-magenta;
+        &::before {
+          content: "";
+          margin-bottom: 20px;
+          height: 16px;
+          width: 93px;
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+          background-image: url(/app/assets/images/icon-star.svg);
+          background-repeat: round;
+        }
+      }
+    }
+  }
+  .cards{
+  
+    .card{
+      margin: 20px auto;
+    
+    
+      text-align: left;
+      padding: 2rem;
+      
+      max-width: 30rem;
+      background-color: $very-dark-magenta;
+      color:$dark-Grayish-Magenta;
+    .head{
+      padding-bottom: 20px;
+      h2{
+        color: $white;
+        font-size:1rem;
+        font-weight: 600;
+        padding-bottom: 10px;
+
+      }
+      p{color:$soft-Pink;
+     
+      }
+      img{
+        border-radius: 50%;
+        width: 50px;
+      }
+    }
+    }
+    
+  }
+}
