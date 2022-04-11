@@ -4,13 +4,20 @@
 body {
   font-size: 15px;
   font-family: "Spartan", sans-serif;
-  background-color: $background-color;
+
   line-height: 1.4;
 }
 
 .main {
+  max-width: 1340px;
+  margin: 0 auto;
 }
 .social {
+    background-image: url(/app/assets/images/bg-pattern-top-mobile.svg),url(/app/assets/images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top left,bottom right;
+  background-size: max(50%,400px);
+
   background-color: $white;
   padding: 2rem;
   text-align: center;
@@ -19,6 +26,7 @@ body {
   }
 
   .title {
+    grid: title;
     h1 {
       margin-left: auto;
       margin-right: auto;
@@ -28,11 +36,12 @@ body {
       color: $very-dark-magenta;
     }
     p {
-      
+      font-size: clamp(0.9rem, 1rem, 1.4rem);
       padding-top: 20px;
     }
   }
   .ratings {
+    grid-area: ratings;
     ul {
       li {
         background-color: $light-Grayish-Magenta;
@@ -40,6 +49,9 @@ body {
         margin: 10px;
         font-weight: 700;
         color: $very-dark-magenta;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
         &::before {
           content: "";
           margin-bottom: 20px;
@@ -54,36 +66,66 @@ body {
       }
     }
   }
-  .cards{
-  
-    .card{
+  .cards {
+    grid-area: cards;
+
+    .card {
       margin: 20px auto;
-    
-    
+
       text-align: left;
       padding: 2rem;
-      
-      max-width: 30rem;
-      background-color: $very-dark-magenta;
-      color:$dark-Grayish-Magenta;
-    .head{
-      padding-bottom: 20px;
-      h2{
-        color: $white;
-        font-size:1rem;
-        font-weight: 600;
-        padding-bottom: 10px;
 
-      }
-      p{color:$soft-Pink;
-     
-      }
-      img{
-        border-radius: 50%;
-        width: 50px;
+      max-width: 25rem;
+      background-color: $very-dark-magenta;
+      color: $dark-Grayish-Magenta;
+      .head {
+        padding-bottom: 20px;
+        h2 {
+          color: $white;
+          font-size: 1rem;
+          font-weight: 600;
+          padding-bottom: 10px;
+        }
+        p {
+          color: $soft-Pink;
+        }
+        img {
+          border-radius: 50%;
+          width: 50px;
+        }
       }
     }
+  }
+  @media (min-width: 50rem) {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-areas:
+      "title ratings"
+      "cards cards";
+      background-image: url(/app/assets/images/bg-pattern-top-desktop.svg),url(/app/assets/images/bg-pattern-bottom-desktop.svg);
+    .ratings {
+      li {
+        display: flex;
+        &:last-of-type {
+          transform: translateX(20px);
+        }
+        &:first-of-type {
+          transform: translateX(-20px);
+        }
+      }
     }
-    
+    .cards {
+      display: flex;
+      gap: 10px;
+      & > * {
+        flex: 1;
+      }
+      .card:last-of-type {
+        transform: translateY(20px);
+      }
+      .card:first-of-type {
+        transform: translateY(-20px);
+      }
+    }
   }
 }
